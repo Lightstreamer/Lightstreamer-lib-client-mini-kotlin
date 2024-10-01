@@ -15,9 +15,6 @@ Supported features:
 - Client messages
 - TLCP-diff compression
 
-For questions and support please use the [Official Forum](https://forums.lightstreamer.com/).
-The issue list of this page is **exclusively** for bug reports and feature requests.
-
 ## Installation
 
 Lightstreamer Kotlin SDK requires JVM version 21 or later.
@@ -43,7 +40,7 @@ dependencies {
 ## Quickstart
 
 To open a session to a Lightstreamer Server, you need to configure a [LightstreamerClient](./kotlin/com/lightstreamer/client/LightstreamerClient.kt). 
-A minimal version of the code that creates a LightstreamerClient and connects to the Lightstreamer Server on *https://push.lightstreamer.com* will look like this:
+A minimal version of the code that creates a LightstreamerClient, connects to the Lightstreamer Server and subscribes an item, will look like this:
 
 ```kotlin
 import com.lightstreamer.client.LightstreamerClient
@@ -113,3 +110,12 @@ then build and test using gradle:
 ```sh
 gradle build
 ```
+
+## Documentation
+
+- [API reference](https://lightstreamer.github.io/Lightstreamer-lib-client-mini-kotlin/)
+
+## Support
+
+For questions and support please use the [Official Forum](https://forums.lightstreamer.com/).
+The issue list of this page is **exclusively** for bug reports and feature requests.
