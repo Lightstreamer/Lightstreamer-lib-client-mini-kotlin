@@ -1,8 +1,9 @@
-# Lightstreamer Kotlin Client SDKs
+# Lightstreamer Kotlin Client Library
 
-Lightstreamer Client SDK enables any Kotlin/JVM application to communicate bidirectionally with a **Lightstreamer Server**.
-The API allows to subscribe to real-time data pushed by the server and to send any message to the server.
-This SDK is written in Kotlin/JVM, fully asynchronous and optimized for performance.
+The Lightstreamer Kotlin Client Library enables any Kotlin/JVM application to communicate bidirectionally with a **Lightstreamer Broker**. This library allows you to subscribe to real-time data pushed by the server and send messages back to the server. It is written in Kotlin for the JVM, fully asynchronous, and optimized for performance.
+
+> **⚠️ Note:** This library is a lightweight, stripped-down version optimized for minimal resource usage.  
+> For the fully featured and officially supported Lightstreamer client library for the JVM, please refer to the [official project here](https://github.com/Lightstreamer/Lightstreamer-lib-client-haxe).
 
 Supported features:
 
@@ -17,9 +18,9 @@ Supported features:
 
 ## Installation
 
-Lightstreamer Kotlin SDK requires JVM version 21 or later.
- 
-To add a dependency using Maven, use the following:
+The Lightstreamer Kotlin library requires JVM version 21 or later.
+
+To add the library using **Maven**, include the following dependency:
 
 ```xml
 <dependency>
@@ -29,7 +30,7 @@ To add a dependency using Maven, use the following:
 </dependency>
 ```
 
-To add a dependency using Gradle:
+To add the library using **Gradle**, include:
 
 ```gradle
 dependencies {
@@ -39,8 +40,9 @@ dependencies {
 
 ## Quickstart
 
-To open a session to a Lightstreamer Server, you need to configure a [LightstreamerClient](./kotlin/com/lightstreamer/client/LightstreamerClient.kt). 
-A minimal version of the code that creates a LightstreamerClient, connects to the Lightstreamer Server and subscribes an item, will look like this:
+To start a session with a Lightstreamer Server, you need to configure a [LightstreamerClient](./kotlin/com/lightstreamer/client/LightstreamerClient.kt). 
+
+Here's a minimal example demonstrating how to create a `LightstreamerClient` and connect to a Lightstreamer Server at *https://push.lightstreamer.com*:
 
 ```kotlin
 import com.lightstreamer.client.LightstreamerClient
@@ -53,7 +55,7 @@ import kotlinx.coroutines.runBlocking
 
 fun main() {
     runBlocking {
-        // to connect to a Lightstreamer Server you need to configure a LightstreamerClient.
+        // To connect to a Lightstreamer Server you need to configure a LightstreamerClient.
         // You can use the same client to open multiple sessions.
         // Close this client to terminate all generated sessions and release resources.
         val client = LightstreamerClient(
@@ -70,7 +72,7 @@ fun main() {
         // await connection and print session ID
         println("Lightstreamer Session ID ${session.sessionId.await()}")
 
-        // request a subscription to a MERGE item
+        // Subscribe to a MERGE item
         val subscription: LightstreamerSubscription = session.subscribe(
             mode = SubscriptionMode.MERGE,
             dataAdapterName = "QUOTE_ADAPTER",
@@ -79,13 +81,13 @@ fun main() {
             requestSnapshot = true
         )
 
-        // you must consume subscription's events
+        // Consume subscription's events
         repeat(5) {
             val message: LightstreamerSubscriptionMessage = subscription.receive()
             println("Received: $message")
         }
 
-        // dispose all resources
+        // Release resources
         client.close()
     }
 }
@@ -93,19 +95,19 @@ fun main() {
 
 ## Logging
 
-This library uses SLF4j.
+This library uses SLF4j for logging.
 
-## Building
+## Building the Library
 
-To build the Lightstreamer Kotlin client, ensure that you have [SDKMAN!](https://sdkman.io/) installed.
+To build the Lightstreamer Kotlin client, make sure you have [SDKMAN!](https://sdkman.io/) installed.
 
-First setup dependencies defined in [.sdkmanrc](.sdkmanrc) once.
+First, set up the dependencies defined in [.sdkmanrc](.sdkmanrc):
 
 ```sh
 sdk env install
 ```
 
-then build and test using gradle:
+Then build and test using Gradle:
 
 ```sh
 gradle build
@@ -117,5 +119,5 @@ gradle build
 
 ## Support
 
-For questions and support please use the [Official Forum](https://forums.lightstreamer.com/).
-The issue list of this page is **exclusively** for bug reports and feature requests.
+For questions and support, please visit the [official Lightstreamer forum](https://forums.lightstreamer.com/).
+Please note that the issue tracker on this page is intended **exclusively** for reporting bugs and submitting feature requests.
