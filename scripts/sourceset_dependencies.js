@@ -1,0 +1,1 @@
+sourceset_dependencies = '{":ls-kotlin-mini-socket:dokkaHtmlPartial/main":[],":ls-kotlin-mini-client:dokkaHtmlPartial/main":[]}'

@@ -1,0 +1,9 @@
+$dokka.format:html-v1
+$dokka.linkExtension:html
+
+module:ls-kotlin-mini-client
+com.lightstreamer.client
+module:ls-kotlin-mini-socket
+com.lightstreamer.client.socket
+com.lightstreamer.client.socket.diff
+com.lightstreamer.client.socket.message
