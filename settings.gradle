@@ -1,0 +1,5 @@
+include ':socket', ':client'
+
+rootProject.name = 'lib-client-kotlin-mini'
+project(':client').name = 'ls-kotlin-mini-client'
+project(':socket').name = 'ls-kotlin-mini-socket'

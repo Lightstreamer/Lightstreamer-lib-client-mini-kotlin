@@ -1,0 +1,59 @@
+buildscript {
+    ext.kotlin_version = '2.0.20'
+    ext.kotlin_stdlib = "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    ext.kotlinx_coroutines_version = '1.9.0'
+    ext.junit_engine_version = '5.10.3'
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+plugins {
+    id 'org.jetbrains.dokka' version '1.9.20'
+}
+
+allprojects {
+    group = 'com.lightstreamer'
+    version = '0.1.0'
+
+    repositories {
+        mavenCentral()
+    }
+}
+
+subprojects {
+    apply plugin: 'kotlin'
+    apply plugin: 'maven-publish'
+    apply plugin: 'org.jetbrains.dokka'
+
+    version = parent.version
+
+    kotlin {
+        explicitApi()
+    }
+
+    java {
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
+    }
+
+    tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
+        kotlinOptions {
+            jvmTarget = "21"
+            languageVersion = "2.0"
+        }
+    }
+
+    publishing {
+        publications {
+            mavenJava(MavenPublication) {
+                from components.java
+            }
+        }
+    }
+}

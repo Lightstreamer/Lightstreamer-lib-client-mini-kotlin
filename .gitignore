@@ -1,0 +1,20 @@
+# Configuration files
+.*
+*.local
+!/.git*
+!/.sdkmanrc
+
+# Gradle files
+local.properties
+build
+out
+gradle
+gradlew
+gradlew.bat
+
+# IDE
+*.iml
+
+# Other files
+*.jar
+*.log
