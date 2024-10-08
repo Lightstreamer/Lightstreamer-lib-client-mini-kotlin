@@ -1,7 +1,5 @@
 package com.lightstreamer.client.socket.message
 
-import com.lightstreamer.client.socket.IndexedUpdateMap
-
 /**
  * Subscription event
  */
@@ -16,7 +14,8 @@ public sealed class LightstreamerSubscriptionMessage {
 
     public data class Overflow(val item: Int, val overflowSize: Int) : LightstreamerSubscriptionMessage()
 
-    public class Update(private val updateMap: IndexedUpdateMap) : LightstreamerSubscriptionMessage(), IndexedUpdateMap by updateMap {
+    public class Update(private val updateMap: Map<String, String?>) :
+        LightstreamerSubscriptionMessage(), Map<String, String?> by updateMap {
         override fun hashCode(): Int = updateMap.hashCode()
         override fun equals(other: Any?): Boolean = this === other || (other is Update) && updateMap == other.updateMap
         override fun toString(): String = "Update$updateMap"
