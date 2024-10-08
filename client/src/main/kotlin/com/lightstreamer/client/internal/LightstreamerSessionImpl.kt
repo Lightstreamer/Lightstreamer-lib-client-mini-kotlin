@@ -78,12 +78,12 @@ internal class LightstreamerSessionImpl(
                     if (lightstreamerServerException != null)
                         return@runCatching lightstreamerServerException
                 }
-                null
+                return@runCatching null
             }
 
             exitResult
-                .onSuccess { completableExitStatus.complete(it) }
-                .onFailure { completableExitStatus.completeExceptionally(it) }
+                .onSuccess(completableExitStatus::complete)
+                .onFailure(completableExitStatus::completeExceptionally)
 
             // cancel pending tasks
             val cause =
@@ -232,11 +232,8 @@ internal class LightstreamerSessionImpl(
                             val serverMessage =
                                 if (keepAlive == null) socket.receive()
                                 else withTimeout(keepAlive.inWholeMilliseconds.coerceAtLeast(1)) { socket.receive() }
-                            if (serverMessage.isDataNotification()) {
-                                messageToSkip--
-                            } else {
-                                onServerMessage(serverMessage)
-                            }
+                            if (serverMessage.isDataNotification()) messageToSkip--
+                            else onServerMessage(serverMessage)
                         }
 
                         connectionOk
