@@ -32,7 +32,7 @@ To add the library using **Maven**, include the following dependency:
 
 To add the library using **Gradle**, include:
 
-```gradle
+```kotlin
 dependencies {
   implementation('com.lightstreamer:ls-kotlin-mini-client:0.1.0')
 }
@@ -103,15 +103,28 @@ To build the Lightstreamer Kotlin client, make sure you have [SDKMAN!](https://s
 
 First, set up the dependencies defined in [.sdkmanrc](.sdkmanrc):
 
-```sh
+```shell
 sdk env install
 ```
 
 Then build and test using Gradle:
 
-```sh
+```shell
 gradle build
 ```
+
+## Publish library on Maven Central
+
+This library is published in the Maven Central Repository.
+To release a new version, you need the signature key and Sonatype's Access Token.
+
+```shell
+export SONATYPE_TOKEN=...
+export SONATYPE_TOKEN_PASSWORD='...'
+gradle publish
+```
+
+Then access to staging repository, close and publish it.
 
 ## Documentation
 

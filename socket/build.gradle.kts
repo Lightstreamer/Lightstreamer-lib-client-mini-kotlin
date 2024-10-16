@@ -1,4 +1,4 @@
-description = "TLCP parser"
+description = "Create WebSocket and parse TLCP"
 
 dependencies {
     api("org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.9.0")

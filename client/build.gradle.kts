@@ -1,4 +1,4 @@
-description = "Lightstreamer client"
+description = "Lightstreamer Kotlin mini client"
 
 dependencies {
     api(project(":ls-kotlin-mini-socket"))
