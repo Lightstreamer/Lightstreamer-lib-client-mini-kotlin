@@ -26,7 +26,7 @@ To add the library using **Maven**, include the following dependency:
 <dependency>
   <groupId>com.lightstreamer</groupId>
   <artifactId>ls-kotlin-mini-client</artifactId>
-  <version>0.1.0</version>
+  <version>0.2.0</version>
 </dependency>
 ```
 
@@ -34,7 +34,7 @@ To add the library using **Gradle**, include:
 
 ```kotlin
 dependencies {
-  implementation('com.lightstreamer:ls-kotlin-mini-client:0.1.0')
+  implementation('com.lightstreamer:ls-kotlin-mini-client:0.2.0')
 }
 ```
 
