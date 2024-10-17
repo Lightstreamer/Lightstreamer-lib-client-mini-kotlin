@@ -40,17 +40,17 @@ dependencies {
 
 ## Quickstart
 
-To start a session with a Lightstreamer Server, you need to configure a [LightstreamerClient](./kotlin/com/lightstreamer/client/LightstreamerClient.kt). 
+To start a session with a Lightstreamer Server, you need to configure a [LightstreamerClient](./kotlin/com/lightstreamer/kotlin/client/LightstreamerClient.kt). 
 
 Here's a minimal example demonstrating how to create a `LightstreamerClient` and connect to a Lightstreamer Server at *https://push.lightstreamer.com*:
 
 ```kotlin
-import com.lightstreamer.client.LightstreamerClient
-import com.lightstreamer.client.LightstreamerSession
-import com.lightstreamer.client.LightstreamerSubscription
-import com.lightstreamer.client.socket.LightstreamerServerAddress
-import com.lightstreamer.client.socket.SubscriptionMode
-import com.lightstreamer.client.socket.message.LightstreamerSubscriptionMessage
+import com.lightstreamer.kotlin.client.LightstreamerClient
+import com.lightstreamer.kotlin.client.LightstreamerSession
+import com.lightstreamer.kotlin.client.LightstreamerSubscription
+import com.lightstreamer.kotlin.socket.LightstreamerServerAddress
+import com.lightstreamer.kotlin.socket.SubscriptionMode
+import com.lightstreamer.kotlin.socket.message.LightstreamerSubscriptionMessage
 import kotlinx.coroutines.runBlocking
 
 fun main() {
@@ -101,7 +101,7 @@ This library uses SLF4j for logging.
 
 To build the Lightstreamer Kotlin client, make sure you have [SDKMAN!](https://sdkman.io/) installed.
 
-First, set up the dependencies defined in [.sdkmanrc](.sdkmanrc):
+First, set up the dependencies defined in [.sdkmanrc](./.sdkmanrc):
 
 ```shell
 sdk env install
